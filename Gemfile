@@ -5,9 +5,8 @@ ruby '2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
-
 gem 'uglifier', '>=4.2.0'
-gem 'coffe-rails'
+gem 'coffee-rails', '~>5.0.0'
 gem 'jquery-rails'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -36,7 +35,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'web-console', '>= 4.1.0'
   gem 'rack-mini-profiler', '~> 2.0'
-  gem 'Spring'
+  gem 'spring'
 end
 
 
@@ -50,3 +49,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg'
+
+end 
