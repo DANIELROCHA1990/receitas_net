@@ -1,22 +1,21 @@
 class RecipesController < ApplicationController
 	
 	def index
-		@recipes = Recipe.all
+		@recipes = Recipe.created_at
 	end
 
 
 	def show
-		@recipe = Recipe.find(params[:id])
+		@recipe = recipe_find #private
 	end
 
 	def edit
-		@recipe = Recipe.find(params[:id])
+		@recipe = recipe_find #private
 	end
 
 	def update
-		@recipe = Recipe.find(params[:id])
-		recipe_params = params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost)
-		@recipe.update(recipe_params)
+		@recipe = recipe_find #private
+		@recipe.update(recipe_params) #private
 		redirect_to @recipe
 	end
 
@@ -25,15 +24,24 @@ class RecipesController < ApplicationController
 	end
 
 	def create
-		recipe_params = params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost)
-		@recipe = Recipe.new(recipe_params)
+		@recipe = Recipe.new(recipe_params) #private
 		@recipe.save
 		redirect_to @recipe
 	end
 
 	def destroy
-		@recipe = Recipe.find(params[:id])
+		@recipe = recipe_find #private
 		@recipe.destroy
 		redirect_to recipes_url
 	end
+end
+
+#Ao criar um private com as informações, colocamos em pratica o metodo D.R.Y do ruby
+private
+def recipe_params
+	params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost)
+end
+
+def recipe_find
+	Recipe.find(params[:id])
 end
