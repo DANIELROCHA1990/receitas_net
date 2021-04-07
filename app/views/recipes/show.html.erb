@@ -5,41 +5,27 @@
 	</header>
 
 	<h2>Tipo</h2>
-	<p>
-	<%= @recipe.kind %>
-	</p>
+	<p><%= @recipe.kind %></p>
 
 	<h2>Ingredientes</h2>
-	<p>
-	<%= @recipe.stuff%>
-	</p>
+	<p><%= @recipe.stuff%></p>
 
 	<h2>Calorias</h2>
-	<p>
-		<%= @recipe.calories%>
-	</p>
+	<p><%= @recipe.calories%></p>
 
 	<h3>Modo de Preparo</h3>
-	<p>
-		<%= @recipe.prepare_mode%>
-	</p>
+	<p><%= @recipe.prepare_mode%></p>
 
 	<h2>Tempo de Preparo</h2>
-	<p>
-	<%= @recipe.duration.to_s%> min
-	</p>
+	<p><%= @recipe.prepare_duration%></p>
 
 	<h2>Porções</h2>
-	<p>
-	<%= pluralize(@recipe.portion, "porção", "porções") %>
-	</p>
+	<p><%= pluralize(@recipe.portion, "porção", "porções") %></p>
 
 	<h3>Custo</h3>
-	<p>
-		<%= @recipe.cost%>
-	</p>
+	<p><%= @recipe.cost%></p>
 </article>
 
 <%= link_to "Receitas", recipes_path %>
-<%= link_to "Editar Receita", edit_recipe_path(@recipe) %>
+<%= link_to "Editar Receita", edit_recipe_path(@recipe), data: {show: "Alterado com Sucesso"} %>
 <%= link_to "Deletar", recipe_path(@recipe), method: :delete, data:{confirm: "Deseja deletar?"} %>

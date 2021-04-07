@@ -1,6 +1,6 @@
 module RecipesHelper
 	def formata_caloria(recipe)
-		if recipe.Light?
+		if recipe.light?
 			content_tag(:strong, "Light {menos de 100 calorias}")
 		else
 			recipe.calories

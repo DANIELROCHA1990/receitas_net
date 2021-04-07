@@ -9,31 +9,21 @@
 			<h2><%= link_to recipe.name , recipe %></h2>
 			<%= imagem(recipe)  %>
 		</header>
-			<th>Ingredientes: 
-			</th>
-			<p>
-			<%= truncate(recipe.stuff, lenght: 35, separator: ' ')%>
-			</p>
-			<th>Calorias: 
-			</th>
-		<p>
-			<%= formata_caloria(recipe) %>
-		</p>
+			<th>Ingredientes: </th>
+			<p><%= truncate(recipe.stuff, lenght: 35, separator: ' ')%></p>
+			
+			<th>Calorias: </th>
+			<p><%= formata_caloria(recipe) %></p>
 
-		<p>
-			<%= recipe.duration.to_s %> min
-		</p>
+			<th>Tempo de Preparo: </th>
+			<p><%= recipe.prepare_duration %> min</p>
 		
 		<table>
 			<tr>
-				<th>Modo de Preparo: 
-				</th>
-				<td><%= truncate(recipe.prepare_mode, lenght: 15, separator: ' ')%>
-				</td>
-				<th>Custo do prato:
-				</th>
-				<td><%= number_to_currency(recipe.cost) %>
-				</td>
+				<th>Modo de Preparo:</th>
+				<td><%= truncate(recipe.prepare_mode, lenght: 15, separator: ' ')%></td>
+				<th>Custo do prato: </th>
+				<td><%= number_to_currency(recipe.cost) %></td>
 
 			</tr>
 		</table>
