@@ -7,6 +7,7 @@
 	<article>
 		<header>
 			<h2><%= link_to recipe.name , recipe %></h2>
+			<%= imagem(recipe)  %>
 		</header>
 			<th>Ingredientes: 
 			</th>
@@ -18,6 +19,11 @@
 		<p>
 			<%= formata_caloria(recipe) %>
 		</p>
+
+		<p>
+			<%= recipe.duration.to_s %> min
+		</p>
+		
 		<table>
 			<tr>
 				<th>Modo de Preparo: 

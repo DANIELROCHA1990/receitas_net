@@ -39,7 +39,7 @@ end
 #Ao criar um private com as informações, colocamos em pratica o metodo D.R.Y do ruby
 private
 def recipe_params
-	params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost)
+	params.require(:recipe).permit(:name, :stuff, :calories, :prepare_mode, :cost, :kind, :portion, :duration, :poster)
 end
 
 def recipe_find
