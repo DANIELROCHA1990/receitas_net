@@ -1,4 +1,6 @@
-<h1><%= pluralize(@recipes.size, "Receita", "Receitas") %></h1>
+
+<h1>Bem vindo ao Receitas Net!</h1>
+<h2><%= pluralize("Até agora temos " + @recipes.size.to_s, "Receita", "Receitas") %></h2>
 
 <ul>
 	<% @recipes.each do |recipe| %>
@@ -6,9 +8,13 @@
 		<header>
 			<h2><%= link_to recipe.name , recipe %></h2>
 		</header>
-		<p>
-			<%= truncate(recipe.stuff, lenght: 15, separator: ' ')%>
-		</p>
+			<th>Ingredientes: 
+			</th>
+			<p>
+			<%= truncate(recipe.stuff, lenght: 35, separator: ' ')%>
+			</p>
+			<th>Calorias: 
+			</th>
 		<p>
 			<%= formata_caloria(recipe) %>
 		</p>
@@ -16,12 +22,13 @@
 			<tr>
 				<th>Modo de Preparo: 
 				</th>
-				<td><%= recipe.prepare_mode %>	
+				<td><%= truncate(recipe.prepare_mode, lenght: 15, separator: ' ')%>
 				</td>
-				<th>Custo do prato: 
+				<th>Custo do prato:
 				</th>
 				<td><%= number_to_currency(recipe.cost) %>
 				</td>
+
 			</tr>
 		</table>
 	</article>
